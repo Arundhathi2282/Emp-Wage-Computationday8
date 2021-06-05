@@ -106,6 +106,7 @@ public class EmpWageComputation {
 		obj.wagePerHr = 20;
 		obj.totalSalary = 0;
 		obj.wagesTillCondition();
+		System.out.print("Total Salary  : ");
 		System.out.println(obj.totalSalary);
 		System.out.println(obj.totalHrs);
 		System.out.println(obj.totalDays);
