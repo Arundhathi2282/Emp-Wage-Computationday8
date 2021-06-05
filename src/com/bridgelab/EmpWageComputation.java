@@ -9,6 +9,7 @@ class Employee {
 	int workingHrs;
 	int wagePerHr;
 	int salary;
+	int totalSalary;
 
 	/**
 	 * Checking Employee is present or absent
@@ -31,8 +32,15 @@ class Employee {
 	/**
 	 * Calculating daily salary of an employee
 	 */
-	public void calculatingDailyWage() {
+	public int calculatingDailyWage() {
 		salary = workingHrs * wagePerHr;
+		return salary;
+	}
+	public void calculateWageForMonth() {
+		for(int i=0;i<20;i++) {
+			employeeAttendanceUsingCase();
+			totalSalary = totalSalary + salary;
+		}
 	}
 
 	/**
@@ -69,9 +77,9 @@ public class EmpWageComputation {
 		Employee obj = new Employee();
 		obj.isFullTimePresent = 1;
 		obj.wagePerHr = 20;
-		//obj.checkAttendance();
-		//obj.calculatingDailyWage();
+		obj.totalSalary=0;
 		obj.employeeAttendanceUsingCase();
-		System.out.println(obj.salary);
+		obj.calculateWageForMonth();
+		System.out.println(obj.totalSalary);
 	}
 }
