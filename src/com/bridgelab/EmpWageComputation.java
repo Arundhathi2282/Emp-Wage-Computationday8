@@ -19,12 +19,12 @@ class Employee {
 		if (randomCheck == isFullTimePresent) {
 			System.out.println("Employee is Full Time Present ");
 			workingHrs = 8;
-		}else if(randomCheck == isPartTimePresent)  {
-				System.out.println("Employee is Part time Present ");
-				workingHrs = 4;
-		}else {
+		} else if (randomCheck == isPartTimePresent) {
+			System.out.println("Employee is Part time Present ");
+			workingHrs = 4;
+		} else {
 			System.out.println("Employee is Absent ");
-			workingHrs=0;
+			workingHrs = 0;
 		}
 	}
 
@@ -33,6 +33,26 @@ class Employee {
 	 */
 	public void calculatingDailyWage() {
 		salary = workingHrs * wagePerHr;
+	}
+
+	/**
+	 * Checking employee is full time present or part time present or absent accordingly 
+	 * calculating the salary of an employee using switch case
+	 */
+	public void employeeAttendanceUsingCase() {
+		switch (randomCheck) {
+		case 1:
+			checkAttendance();
+			calculatingDailyWage();
+			break;
+		case 2:
+			checkAttendance();
+			calculatingDailyWage();
+			break;
+		default:
+			checkAttendance();
+			calculatingDailyWage();
+		}
 	}
 }
 
@@ -49,8 +69,9 @@ public class EmpWageComputation {
 		Employee obj = new Employee();
 		obj.isFullTimePresent = 1;
 		obj.wagePerHr = 20;
-		obj.checkAttendance();
-		obj.calculatingDailyWage();
+		//obj.checkAttendance();
+		//obj.calculatingDailyWage();
+		obj.employeeAttendanceUsingCase();
 		System.out.println(obj.salary);
 	}
 }
