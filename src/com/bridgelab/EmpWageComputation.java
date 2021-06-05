@@ -10,6 +10,10 @@ class Employee {
 	int wagePerHr;
 	int salary;
 	int totalSalary;
+	int totalHrs;
+	int totalDays;
+	final int TOTAL_DAYS = 20;
+	final int TOTAL_HRS = 100;
 
 	/**
 	 * Checking Employee is present or absent
@@ -36,16 +40,39 @@ class Employee {
 		salary = workingHrs * wagePerHr;
 		return salary;
 	}
+
+	/**
+	 * Calculating employee wage for a month
+	 */
 	public void calculateWageForMonth() {
-		for(int i=0;i<20;i++) {
+		for (int i = 0; i < 20; i++) {
 			employeeAttendanceUsingCase();
 			totalSalary = totalSalary + salary;
+			// return totalSalary;
 		}
 	}
 
 	/**
-	 * Checking employee is full time present or part time present or absent accordingly 
-	 * calculating the salary of an employee using switch case
+	 * In this method we are calculating the employee salary based on condition i.e
+	 * total working hours are 100 or total working days are 20
+	 */
+	public void wagesTillCondition() {
+		while (true) {
+			checkAttendance();
+			calculatingDailyWage();
+			totalHrs = totalHrs + workingHrs;
+			totalDays = totalDays + 1;
+			totalSalary = totalSalary + salary;
+			if (totalHrs == 100 || totalDays == 20) {
+				System.out.println(totalSalary);
+				break;
+			}
+		}
+	}
+
+	/**
+	 * Checking employee is full time present or part time present or absent
+	 * accordingly calculating the salary of an employee using switch case
 	 */
 	public void employeeAttendanceUsingCase() {
 		switch (randomCheck) {
@@ -77,9 +104,10 @@ public class EmpWageComputation {
 		Employee obj = new Employee();
 		obj.isFullTimePresent = 1;
 		obj.wagePerHr = 20;
-		obj.totalSalary=0;
-		obj.employeeAttendanceUsingCase();
-		obj.calculateWageForMonth();
+		obj.totalSalary = 0;
+		obj.wagesTillCondition();
 		System.out.println(obj.totalSalary);
+		System.out.println(obj.totalHrs);
+		System.out.println(obj.totalDays);
 	}
 }
