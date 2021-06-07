@@ -12,8 +12,16 @@ class Employee {
 	int totalSalary;
 	int totalHrs;
 	int totalDays;
-	final int TOTAL_DAYS = 20;
-	final int TOTAL_HRS = 100;
+	String company;
+	public Employee() {
+		//default constructor
+	}
+	public Employee(int x,String s) {
+		workingHrs = x;
+		company = s;
+		salary = workingHrs * wagePerHr;
+		System.out.println("Salary for company "+company+" is : "+salary);
+	}
 
 	/**
 	 * Checking Employee is present or absent
@@ -101,6 +109,7 @@ public class EmpWageComputation {
 	 */
 	public static void main(String[] args) {
 		System.out.println("Welcome to Employee Wage Computation Program");
+		Employee obj1 = new Employee(20,"Dmart");
 		Employee obj = new Employee();
 		obj.isFullTimePresent = 1;
 		obj.wagePerHr = 20;
